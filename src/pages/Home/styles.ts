@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
   },
   hr: {
     backgroundColor: "#333333",
-    height: 2,
+    height: 1,
     marginTop: 20,
     marginHorizontal: 40,
   },
@@ -85,6 +85,31 @@ export const styles = StyleSheet.create({
   text2Empty: {
     color: "#808080",
     fontSize: 16,
+  },
+  item: {
+    color: "#808080",
+  },
+  todo: {
+    marginBottom: 10,
+    borderColor: "#333333",
+    borderWidth: 1,
+    padding: 15,
+    borderRadius: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#262626",
+    alignItems: "center",
+    marginHorizontal: 35,
+  },
+  todoText: {
+    marginHorizontal: 10,
+    flex: 8,
+    fontSize: 18,
+    color: "#F2F2F2",
+  },
+  todoDone: {
+    textDecorationLine: "line-through",
+    color: "#808080",
   },
   tasks: {},
 });
