@@ -36,8 +36,55 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
   },
   content: {},
-  informations: {},
-  created: {},
-  completed: {},
+  informations: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 30,
+  },
+  informationsTexts: {
+    marginRight: 10,
+    fontSize: 17,
+    color: "#F2F2F2",
+    fontWeight: "bold",
+  },
+  containerInformations: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  createdTitle: {
+    color: "#4EA8DE",
+  },
+  completedTitle: {
+    color: "#8284FA",
+  },
+  counter: {
+    color: "#F2F2F2",
+    backgroundColor: "#333333",
+    textAlign: "center",
+    paddingHorizontal: 10,
+    borderRadius: 40,
+  },
+  hr: {
+    backgroundColor: "#333333",
+    height: 2,
+    marginTop: 20,
+    marginHorizontal: 40,
+  },
+  tasksEmpty: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 60,
+  },
+  text1Empty: {
+    color: "#808080",
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop: 10,
+  },
+  text2Empty: {
+    color: "#808080",
+    fontSize: 16,
+  },
   tasks: {},
 });
