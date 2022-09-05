@@ -25,6 +25,7 @@ interface Todo {
 
 export function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [numberOfCompleted, setNumberOfCompleted] = useState(0);
   const [newTodo, setNewTodo] = useState("");
 
   function addTodo() {
@@ -44,7 +45,7 @@ export function Home() {
         >
           {todo.text}
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => deleteTodo(todo)}>
           <Image source={Trash} />
         </TouchableOpacity>
       </View>
@@ -53,6 +54,11 @@ export function Home() {
 
   function makeTodoDone(todo: Todo) {
     todo.done = !todo.done;
+    if (todo.done) {
+      setNumberOfCompleted((n) => n + 1);
+    } else {
+      setNumberOfCompleted((n) => n - 1);
+    }
 
     const todosUpdated = todos.map((t) => {
       if (t.id === todo.id) return todo;
@@ -60,6 +66,11 @@ export function Home() {
     });
 
     setTodos(todosUpdated);
+  }
+
+  function deleteTodo(todo: Todo) {
+    if (todo.done) setNumberOfCompleted((n) => n - 1);
+    setTodos((todos) => todos.filter((t) => t.id !== todo.id));
   }
 
   function renderTodos({ item }: { item: Todo }) {
@@ -82,23 +93,25 @@ export function Home() {
           <Image source={Plus} />
         </TouchableOpacity>
       </View>
-      <View style={styles.content}>
-        <View style={styles.informations}>
-          <View style={styles.containerInformations}>
-            <Text style={[styles.informationsTexts, styles.createdTitle]}>
-              Criadas
-            </Text>
-            <Text style={[styles.informationsTexts, styles.counter]}>0</Text>
-          </View>
-          <View style={styles.containerInformations}>
-            <Text style={[styles.informationsTexts, styles.completedTitle]}>
-              Concluídas
-            </Text>
-            <Text style={[styles.informationsTexts, styles.counter]}>0</Text>
-          </View>
+      <View style={styles.informations}>
+        <View style={styles.containerInformations}>
+          <Text style={[styles.informationsTexts, styles.createdTitle]}>
+            Criadas
+          </Text>
+          <Text style={[styles.informationsTexts, styles.counter]}>
+            {todos.length}
+          </Text>
         </View>
-        <View style={styles.hr}></View>
+        <View style={styles.containerInformations}>
+          <Text style={[styles.informationsTexts, styles.completedTitle]}>
+            Concluídas
+          </Text>
+          <Text style={[styles.informationsTexts, styles.counter]}>
+            {numberOfCompleted}
+          </Text>
+        </View>
       </View>
+      <View style={styles.hr}></View>
       {todos.length === 0 ? (
         <View style={styles.tasksEmpty}>
           <Image source={Clipboard} />

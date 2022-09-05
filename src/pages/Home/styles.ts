@@ -35,11 +35,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 5,
   },
-  content: {},
   informations: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     marginTop: 30,
+    marginHorizontal: 40,
   },
   informationsTexts: {
     marginRight: 10,
@@ -64,6 +64,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: 10,
     borderRadius: 40,
+    marginRight: 0,
   },
   hr: {
     backgroundColor: "#333333",
